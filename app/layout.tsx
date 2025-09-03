@@ -10,7 +10,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Decide For Me",
+  title: "WSID",
   description: "양자택일 투표 서비스",
 };
 
@@ -35,15 +35,12 @@ export default function RootLayout({
                   WSID
                 </a>
                 <nav className="flex items-center gap-3 text-sm">
-                  <a href="/" className="opacity-80 hover:opacity-100">
-                    피드
-                  </a>
                   <a href="/me" className="opacity-80 hover:opacity-100">
                     내정보
                   </a>
                   <a
                     href="/login"
-                    className="hidden sm:inline opacity-80 hover:opacity-100"
+                    className="opacity-80 hover:opacity-100"
                   >
                     로그인
                   </a>
