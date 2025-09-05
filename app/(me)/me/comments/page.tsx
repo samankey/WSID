@@ -1,3 +1,9 @@
+import { MyCommentsList } from "@/components/features/me/MyCommentsList";
 export default function MeCommentsPage() {
-  return <main className="p-6">내 코멘트</main>;
+  return (
+    <main className="space-y-6">
+      <h1 className="text-2xl font-semibold">내 포스트</h1>
+      <MyCommentsList />
+    </main>
+  );
 }
