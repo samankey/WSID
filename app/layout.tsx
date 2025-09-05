@@ -38,10 +38,7 @@ export default function RootLayout({
                   <a href="/me" className="opacity-80 hover:opacity-100">
                     내정보
                   </a>
-                  <a
-                    href="/login"
-                    className="opacity-80 hover:opacity-100"
-                  >
+                  <a href="/login" className="opacity-80 hover:opacity-100">
                     로그인
                   </a>
                 </nav>

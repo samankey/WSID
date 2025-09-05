@@ -49,31 +49,31 @@ export default function PostsFeed() {
   }
 
   return (
-    <div className="rounded-2xl border border-white/10">
-      <Virtuoso
-        style={{ height: "calc(100dvh - 220px)" }} // 헤더/푸터 제외한 가용 높이. 필요시 조절
-        data={items}
-        itemContent={(index, post) => (
-          <div className="p-2">
-            <PostRow post={post} />
+    // <div className="rounded-2xl border border-white/10">
+    <Virtuoso
+      style={{ height: "calc(100dvh - 100px)" }} // 헤더/푸터 제외한 가용 높이. 필요시 조절
+      data={items}
+      itemContent={(index, post) => (
+        <div className="p-2">
+          <PostRow post={post} />
+        </div>
+      )}
+      endReached={() => {
+        if (hasNextPage && !isFetchingNextPage) fetchNextPage();
+      }}
+      overscan={200} // 스크롤 성능 튜닝
+      components={{
+        Footer: () => (
+          <div className="p-4 text-center text-xs opacity-70">
+            {isFetchingNextPage
+              ? "불러오는 중…"
+              : hasNextPage
+                ? "더보기"
+                : "마지막입니다"}
           </div>
-        )}
-        endReached={() => {
-          if (hasNextPage && !isFetchingNextPage) fetchNextPage();
-        }}
-        overscan={200} // 스크롤 성능 튜닝
-        components={{
-          Footer: () => (
-            <div className="p-4 text-center text-xs opacity-70">
-              {isFetchingNextPage
-                ? "불러오는 중…"
-                : hasNextPage
-                  ? "스크롤하면 더보기"
-                  : "마지막입니다"}
-            </div>
-          ),
-        }}
-      />
-    </div>
+        ),
+      }}
+    />
+    // </div>
   );
 }

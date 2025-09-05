@@ -8,7 +8,7 @@ export default function PostRow({ post }: { post: PostListItem }) {
   return (
     <Link
       href={`/post/${post.id}`}
-      className="group block rounded-xl border border-white/10 p-4 hover:bg-white/5"
+      className="group block border-b py-2 hover:bg-white/5"
     >
       <div className="flex items-center justify-between">
         <h3 className="font-medium leading-tight line-clamp-1 group-hover:underline">
