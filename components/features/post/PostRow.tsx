@@ -1,10 +1,9 @@
-// components/features/post/PostRow.tsx
 "use client";
 import Link from "next/link";
 import { DecisionBadge } from "@/components/features/post/DecisionBadge";
 import type { PostListItem } from "@/lib/types/post";
 
-export default function PostRow({ post }: { post: PostListItem }) {
+export const PostRow = ({ post }: { post: PostListItem }) => {
   return (
     <Link
       href={`/post/${post.id}`}
@@ -21,4 +20,4 @@ export default function PostRow({ post }: { post: PostListItem }) {
       </div>
     </Link>
   );
-}
+};

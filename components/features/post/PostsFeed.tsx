@@ -1,21 +1,21 @@
-// components/features/post/PostsFeed.tsx
 "use client";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Virtuoso } from "react-virtuoso";
+import { PostRow } from "@/components/features/post/PostRow";
+import { Skeleton } from "@/components/ui/skeleton";
 import type { PostListPage } from "@/lib/types/post";
-import PostRow from "./PostRow";
 
-async function fetchPage(cursor?: string | null): Promise<PostListPage> {
+const fetchPage = async (cursor?: string | null): Promise<PostListPage> => {
   const url = cursor
     ? `/api/posts?cursor=${encodeURIComponent(cursor)}`
     : "/api/posts";
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error("failed to load");
   return res.json();
-}
+};
 
-export default function PostsFeed() {
+export const PostsFeed = () => {
   const {
     data,
     isLoading,
@@ -37,7 +37,7 @@ export default function PostsFeed() {
     return (
       <div className="space-y-2">
         {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="h-16 rounded-xl bg-white/5 animate-pulse" />
+          <Skeleton key={i} className="h-16 rounded-xl bg-white/5" />
         ))}
       </div>
     );
@@ -76,4 +76,4 @@ export default function PostsFeed() {
     />
     // </div>
   );
-}
+};
