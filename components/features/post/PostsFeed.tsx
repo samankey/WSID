@@ -49,7 +49,6 @@ export const PostsFeed = () => {
   }
 
   return (
-    // <div className="rounded-2xl border border-white/10">
     <Virtuoso
       style={{ height: "calc(100dvh - 100px)" }} // 헤더/푸터 제외한 가용 높이. 필요시 조절
       data={items}
@@ -74,6 +73,5 @@ export const PostsFeed = () => {
         ),
       }}
     />
-    // </div>
   );
 };
